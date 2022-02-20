@@ -541,6 +541,12 @@
         docs:"https://docs.rsshub.app/reading.html#chao-xing-qi-kan",
         source:[ "/" ],
         target:(params, url) => `/chaoxing/qk/${new URL(url).searchParams.get('mags')}` } ] },
+  "ciidbnu.org":{ _name:"中国收入分配研究院",
+    ".":[ { title:"分类",
+        docs:"https://docs.rsshub.app/new-media.html#",
+        source:[ "/new1.asp",
+          "/" ],
+        target:(_params, url) => `/ciidbnu/${new URL(url).searchParams.get('pagetype')}` } ] },
   "cnbeta.com":{ _name:"cnBeta",
     ".":[ { title:"最新",
         docs:"https://docs.rsshub.app/new-media.html#cnbeta-zuixin",
@@ -2310,7 +2316,15 @@
     dky:[ { title:"招生就业",
         docs:"https://docs.rsshub.app/university.html#si-chuan-nong-ye-da-xue-zhao-sheng-jiu-ye",
         source:[ "/" ],
-        target:"/sicau/zsjy/:category?" } ] },
+        target:"/sicau/zsjy/:category?" },
+      { title:"动物科技学院",
+        docs:"https://docs.rsshub.app/university.html#si-chuan-nong-ye-da-xue",
+        source:[ "/" ],
+        target:"/sicau/dky/:category?" } ],
+    yan:[ { title:"研究生院",
+        docs:"https://docs.rsshub.app/university.html#si-chuan-nong-ye-da-xue",
+        source:[ "/" ],
+        target:"/sicau/yan/:category?" } ] },
   "solidot.org":{ _name:"Solidot",
     www:[ { title:"最新消息",
         docs:"https://docs.rsshub.app/traditional-media.html#solidot",
@@ -2627,6 +2641,15 @@
                     }
 
                     return `/timednews/news/${name}`;
+                } } ] },
+  "tisi.org":{ _name:"腾讯研究院",
+    ".":[ { title:"最近更新",
+        docs:"https://docs.rsshub.app/new-media.html#teng-xun-yan-jiu-yuan",
+        source:[ "/" ],
+        target:(_params, url) => {
+                    if (new URL(url).searchParams.get('page_id') === '11151') {
+                        return '/tisi/latest';
+                    }
                 } } ] },
   "topys.cn":{ _name:"TOPYS",
     ".":[ { title:"关键字",
