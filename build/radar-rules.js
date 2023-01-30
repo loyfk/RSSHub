@@ -2851,6 +2851,12 @@
         docs:"https://docs.rsshub.app/en/other.html#fisher-spb",
         source:[ "/news" ],
         target:"/fisher-spb/news" } ] },
+  "fjksbm.com":{ _name:"福建考试报名网",
+    ".":[ { title:"分类",
+        docs:"https://docs.rsshub.app/study.html#fu-jian-kao-shi-bao-ming-wang",
+        source:[ "/portal/:category?",
+          "/portal" ],
+        target:"/fjksbm/:category?" } ] },
   "flyert.com":{ _name:"飞客茶馆",
     ".":[ { title:"优惠信息",
         docs:"https://docs.rsshub.app/travel.html#fei-ke-cha-guan-you-hui-xin-xi",
@@ -4121,6 +4127,12 @@
         docs:"https://docs.rsshub.app/new-media.html#hkjunkcall-zi-xun-zhong-xin-jin-qi-zi-xun",
         source:[ "/" ],
         target:"/hkjunkcall" } ] },
+  "hljucm.net":{ _name:"黑龙江中医药大学",
+    yjsy:[ { title:"研究生院",
+        docs:"https://docs.rsshub.app/university.html#hei-long-jiang-zhong-yi-yao-da-xue",
+        source:[ "/index/:category",
+          "/index" ],
+        target:(params) => `/hljucm/yjsy/${params.category.replace('.htm', '')}` } ] },
   "voc.com.cn":{ _name:"华声在线",
     ".":[ { title:"湖南日报",
         docs:"https://docs.rsshub.app/journal.html#hu-nan-ri-bao-dian-zi-kan-wu",
@@ -5767,7 +5779,7 @@
         docs:"https://docs.rsshub.app/new-media.html#line-today",
         source:[ "/" ],
         target:"/line/today/:edition?/:tab?" } ] },
-  "linkedin.com":{ _name:"linkedin",
+  "linkedin.com":{ _name:"LinkedIn",
     ".":[ { title:"Job Listing",
         docs:"https://docs.rsshub.app/en/other.html#linkedin-jobs",
         source:"/jobs/search/",
@@ -5780,6 +5792,14 @@
                         return searchParam.split(',').join('-');
                     };
                     return `/linkedin/jobs/${parseRoute(searchParams.get('f_JT'))}/${parseRoute(searchParams.get('f_E'))}/${searchParams.get('keywords') || ''}`;
+                } } ] },
+  "linkedin.cn":{ _name:"LinkedIn 领英中国",
+    ".":[ { title:"Jobs",
+        docs:"https://docs.rsshub.app/other.html#linkedin-ling-ying-zhong-guo",
+        source:"/incareer/jobs/search",
+        target:(params, url) => {
+                    const searchParams = new URL(url).searchParams;
+                    return `/linkedin/cn/jobs/${searchParams.get('keywords') || ''}`;
                 } } ] },
   linkresearcher:{ _name:"领研",
     ".":[ { title:"论文",
